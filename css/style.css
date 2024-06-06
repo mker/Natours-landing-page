@@ -225,39 +225,6 @@ body {
   transform: translateY(0);
 }
 
-.composition {
-  position: relative;
-}
-.composition__photo {
-  position: absolute;
-  width: 55%;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-  outline-offset: 2rem;
-  z-index: 10;
-  transition: all 0.2s;
-}
-.composition__photo--p1 {
-  left: 0;
-  top: -2rem;
-}
-.composition__photo--p2 {
-  right: 0;
-  top: 2rem;
-}
-.composition__photo--p3 {
-  left: 20%;
-  top: 10rem;
-}
-.composition__photo:hover {
-  transform: scale(1.05) translateY(-0.5rem);
-  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-  z-index: 20;
-  outline: 1.5rem solid #55c57a;
-}
-.composition:hover .composition__photo:not(:hover) {
-  transform: scale(0.95);
-}
-
 .card {
   perspective: 150rem;
   position: relative;
@@ -374,6 +341,39 @@ body {
 .card__price-value {
   font-size: 6rem;
   font-weight: 100;
+}
+
+.composition {
+  position: relative;
+}
+.composition__photo {
+  position: absolute;
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  outline-offset: 2rem;
+  z-index: 10;
+  transition: all 0.2s;
+}
+.composition__photo--p1 {
+  left: 0;
+  top: -2rem;
+}
+.composition__photo--p2 {
+  right: 0;
+  top: 2rem;
+}
+.composition__photo--p3 {
+  left: 20%;
+  top: 10rem;
+}
+.composition__photo:hover {
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  outline: 1.5rem solid #55c57a;
+}
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.95);
 }
 
 .feature-box {
@@ -527,6 +527,54 @@ body {
   filter: blur(3px) brightness(80%);
 }
 
+.footer {
+  background-color: #333;
+  color: #f7f7f7;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+}
+.footer__logo-box {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+.footer__logo {
+  width: 15rem;
+  height: auto;
+}
+.footer__navigation {
+  display: inline-block;
+  padding-top: 2rem;
+  border-top: 1px solid #777;
+}
+.footer__list {
+  list-style: none;
+}
+.footer__item {
+  display: inline-block;
+}
+.footer__item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.footer__link:link, .footer__link:visited {
+  color: #f7f7f7;
+  background-color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.footer__link:hover, .footer__link:active {
+  color: #55c57a;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  transform: scale(1.2);
+}
+.footer__copyright {
+  width: 80%;
+  float: right;
+  padding-top: 2rem;
+  border-top: 1px solid #777;
+}
+
 .row {
   max-width: 114rem;
   margin: 0 auto;
@@ -578,58 +626,128 @@ body {
 }
 .header__text-box {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  top: 40%;
   text-align: center;
 }
 
-.footer {
-  background-color: #333;
-  color: #f7f7f7;
-  padding: 10rem 0;
-  font-size: 1.4rem;
+.navigation__checkbox {
+  display: none;
 }
-.footer__logo-box {
+.navigation__button {
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 2000;
+  background-color: #fff;
   text-align: center;
-  margin-bottom: 8rem;
+  cursor: pointer;
 }
-.footer__logo {
-  width: 15rem;
-  height: auto;
+.navigation__background {
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  z-index: 1000;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 }
-.footer__navigation {
-  display: inline-block;
-  padding-top: 2rem;
-  border-top: 1px solid #777;
+.navigation__nav {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  z-index: 1500;
+  transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
-.footer__list {
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   list-style: none;
+  text-align: center;
+  width: 100%;
 }
-.footer__item {
+.navigation__item {
+  margin: 1rem;
+}
+.navigation__link:link, .navigation__link:visited {
   display: inline-block;
-}
-.footer__item:not(:last-child) {
-  margin-right: 1.5rem;
-}
-.footer__link:link, .footer__link:visited {
-  color: #f7f7f7;
-  background-color: #333;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 220%;
+  transition: all 0.4s;
+}
+.navigation__link span {
   display: inline-block;
+  margin-right: 1rem;
+}
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #55c57a;
+  transform: translateX(1rem);
+}
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80);
+}
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+}
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
   transition: all 0.2s;
 }
-.footer__link:hover, .footer__link:active {
-  color: #55c57a;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-  transform: scale(1.2);
+.navigation__icon::before {
+  top: -0.8rem;
 }
-.footer__copyright {
-  width: 80%;
-  float: right;
-  padding-top: 2rem;
-  border-top: 1px solid #777;
+.navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
 }
 
 .section-about {
