@@ -21,16 +21,40 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.25);
     transition: all 0.5s 0.2s;
+
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left {
     width: 33.3333333%;
+
+    @include respond(tab-land) {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include respond(tab-port) {
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__right {
     align-self: center;
     width: 66.66666667%;
     padding: 3rem 5rem;
+
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 2rem 3rem;
+    }
   }
 
   &__img {
@@ -45,6 +69,11 @@
     column-gap: 4rem;
     column-rule: 1px solid $color-grey-light-2;
     hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+      padding: 1rem 2rem;
+    }
   }
 
   &:target {
