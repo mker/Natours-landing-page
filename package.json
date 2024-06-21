@@ -9,7 +9,7 @@
     "start": "npm-run-all --parallel devserver watch:sass",
     "compile:sass": "sass assets/sass/main.scss assets/css/style.comp.css",
     "concat:css": "concat -o assets/css/style.concat.css assets/css/icon-font.css assets/css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' assets/css/style.concat.css -o assets/css/style.prefix.css",
+    "prefix:css": "postcss assets/css/style.concat.css --use autoprefixer -o assets/css/style.prefix.css",
     "compress:css": "sass assets/css/style.prefix.css assets/css/style.min.css --style=compressed",
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
   },
