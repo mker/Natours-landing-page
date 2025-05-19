@@ -26,7 +26,6 @@
   }
 
   &__navigation {
-    display: inline-block;
     padding-top: 2rem;
     border-top: 1px solid $color-grey-dark;
 
@@ -38,14 +37,12 @@
 
   &__list {
     list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
   &__item {
-    display: inline-block;
-
-    &:not(:last-child) {
-      margin-right: 1.5rem;
-    }
   }
 
   &__link {
@@ -68,14 +65,11 @@
   }
 
   &__copyright {
-    width: 80%;
-    float: right;
     padding-top: 2rem;
     border-top: 1px solid $color-grey-dark;
 
     @include respond(tab-port) {
       width: 100%;
-      float: none;
     }
   }
 }
