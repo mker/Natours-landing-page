@@ -1,0 +1,42 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  @include grid(1fr);
+  gap: $gutter-horizontal;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+    gap: $gutter-vertical-small;
+  }
+
+  // Different grid configurations
+  &.row-1-of-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.row-1-of-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.row-1-of-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &.row-2-of-3 {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  &.row-3-of-4 {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
+}
